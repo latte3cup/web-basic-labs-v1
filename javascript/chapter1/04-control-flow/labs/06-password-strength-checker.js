@@ -4,4 +4,34 @@
 - 대문자 1개 이상
 - 숫자 1개 이상
 - 특수문자 1개 이상 (!@#$%^&*)
-*/ 
+*/
+const password = prompt("비밀번호를 입력하세요:");
+
+let errors = [];
+
+// 1. 길이 8자 이상
+if (password.length < 8) {
+  errors.push("8자 이상이어야 합니다.");
+}
+
+// 2. 대문자 1개 이상
+if (!/[A-Z]/.test(password)) {
+  errors.push("대문자를 최소 1개 포함해야 합니다.");
+}
+
+// 3. 숫자 1개 이상
+if (!/[0-9]/.test(password)) {
+  errors.push("숫자를 최소 1개 포함해야 합니다.");
+}
+
+// 4. 특수문자 1개 이상 (!@#$%^&*)
+if (!/[!@#$%^&*]/.test(password)) {
+  errors.push("특수문자 (!@#$%^&*)를 최소 1개 포함해야 합니다.");
+}
+
+// 결과 출력
+if (errors.length === 0) {
+  alert("강한 비밀번호입니다! 💪");
+} else {
+  alert("비밀번호가 다음 조건을 만족하지 않습니다:\n- " + errors.join("\n- "));
+}
