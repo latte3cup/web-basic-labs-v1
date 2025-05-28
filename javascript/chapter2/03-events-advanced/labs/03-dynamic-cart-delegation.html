@@ -13,6 +13,18 @@
       // - productList에 이벤트 등록
       // - 버튼 클릭 시 count 증가
       // - 위임 활용 (e.target.textContent === '담기')
+      const productList = document.getElementById("productList");
+      const countSpan = document.getElementById("count");
+      let count = 0;
+
+      // 이벤트 위임: ul에 클릭 이벤트 리스너 등록
+      productList.addEventListener("click", (e) => {
+        // 클릭된 요소가 '담기' 버튼인지 확인
+        if (e.target.tagName === "BUTTON" && e.target.textContent === "담기") {
+          count += 1; // 개수 증가
+          countSpan.textContent = count; // 화면에 반영
+        }
+      });
     </script>
   </body>
 </html>

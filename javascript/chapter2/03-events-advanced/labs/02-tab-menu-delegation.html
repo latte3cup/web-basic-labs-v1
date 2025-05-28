@@ -12,6 +12,17 @@
       // TODO:
       // ul에 이벤트 등록
       // li 클릭 시 result 텍스트를 "선택된 탭: 상세정보" 등으로 변경
+      const tabsUl = document.getElementById("tabs");
+      const resultParagraph = document.getElementById("result");
+
+      // ul에 이벤트 등록 (이벤트 위임)
+      tabsUl.addEventListener("click", (event) => {
+        // 클릭된 요소가 li 태그인지 확인
+        if (event.target.tagName === "LI") {
+          const selectedTabName = event.target.textContent; // 클릭된 li의 텍스트 가져오기
+          resultParagraph.textContent = `선택된 탭: ${selectedTabName}`;
+        }
+      });
     </script>
   </body>
 </html>

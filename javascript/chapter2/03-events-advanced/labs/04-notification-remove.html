@@ -12,6 +12,19 @@
       // 1. ul에 이벤트 등록
       // 2. 클릭된 버튼이 ❌일 경우
       // 3. 해당 li 요소를 삭제하세요 (remove)
+      const notifications = document.getElementById("notifications");
+
+      // 1. ul에 이벤트 등록
+      notifications.addEventListener("click", (e) => {
+        // 2. 클릭된 버튼이 ❌일 경우
+        if (e.target.tagName === "BUTTON" && e.target.textContent === "❌") {
+          // 3. 해당 li 요소를 삭제
+          const li = e.target.closest("li"); // 가장 가까운 li 요소 찾기
+          if (li) {
+            li.remove();
+          }
+        }
+      });
     </script>
   </body>
 </html>

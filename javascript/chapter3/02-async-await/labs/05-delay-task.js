@@ -6,3 +6,15 @@
 - delay(ms) 함수는 Promise로 만들어도 됨
 - await delay(1000) 후 console.log()
 */
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function ddelay(ms) {
+  console.log("대기 시작...");
+  await delay(ms); // 1초 대기
+  console.log("대기 완료");
+}
+
+ddelay(1000);

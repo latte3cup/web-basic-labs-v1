@@ -7,5 +7,6 @@ const products = [
   { name: "Tablet", price: 600000 },
   { name: "Phone", price: 1000000 },
 ];
-
+products.sort((b, a) => a.price - b.price);
+console.log(products);
 // TODO: sort 사용 (price 기준 오름차순)

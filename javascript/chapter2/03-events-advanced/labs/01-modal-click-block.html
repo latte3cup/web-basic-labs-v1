@@ -12,6 +12,27 @@
       // TODO:
       // 1. overlay 클릭 시 "모달 닫힘" 출력
       // 2. modal 내부 클릭 시 stopPropagation으로 막기
+      const overlay = document.getElementById("overlay");
+      const modal = document.getElementById("modal");
+      const okBtn = document.getElementById("okBtn");
+
+      // 1. overlay 클릭 시 "모달 닫힘" 출력
+      overlay.addEventListener("click", () => {
+        console.log("모달 닫힘");
+        // 실제 모달을 숨기려면 overlay.style.display = 'none'; 등을 추가합니다.
+      });
+
+      // 2. modal 내부 클릭 시 stopPropagation으로 막기
+      modal.addEventListener("click", (event) => {
+        event.stopPropagation(); // 이벤트 버블링 중단
+        console.log("모달 내부 클릭 (오버레이 클릭 이벤트가 발생하지 않음)");
+      });
+
+      // 확인 버튼 클릭 시 모달 닫힘 (선택 사항)
+      okBtn.addEventListener("click", () => {
+        console.log("확인 버튼 클릭");
+        // overlay.style.display = 'none'; // 실제 모달 닫는 기능
+      });
     </script>
   </body>
 </html>
